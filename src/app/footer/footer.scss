@@ -4,27 +4,38 @@
     background: #6E07F3;
     font-family: sans-serif;
     font-weight: 400;
+    padding: 40px 0;
 
     &__footerbox {
-        color: #ffffff;
+        display: flex;
         flex-direction: column;
-        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        color: #ffffff;
         text-align: center;
     }
 
     &__text {
         font-size: 15px;
-        font-size: "eurostile";
+        font-family: sans-serif;
+        margin: 0;
     }
 
     &__button {
+        border: none;
         border-radius: 5px;
         background-color: #6E07F3;
+        cursor: pointer;
+        padding: 0;
+
+        &:hover {
+            opacity: 0.8;
+        }
     }
 
     &__img {
-        background: #6E07F3;
         width: 25px;
         height: 25px;
+        filter: brightness(0) invert(1); // maakt de icoontjes wit
     }
 }

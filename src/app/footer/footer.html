@@ -1,17 +1,21 @@
 <footer class="footer">
   
-<div class="footer__footerbox">
+  <div class="footer__footerbox">
 
-  <img src="favicon.ico">
+    <img src="favicon.ico">
 
-  <p class="footer__text">Living, learning, & leveling up one day at a time.</p>
+    <p class="footer__text">Living, learning, & leveling up one day at a time.</p>
 
-  <button class="footer__button" ><img class="footer__img" src="insta-logo.png"></button> 
-  <button class="footer__button"><img class="footer__img" src="insta-logo.png"></button> 
-  <button class="footer__button"><img class="footer__img" src="insta-logo.png"></button>
+    <div class="footer__socials">
+      @for (social of socials; track social.url) {
+        <a [href]="social.url" target="_blank">
+          <img class="footer__img" [src]="social.icon">
+        </a>
+      }
+    </div>
 
-  <p>Handcrafted by metwentytwentyfour</p>
+    <p>Handcrafted by Quincy</p>
 
-</div>
+  </div>
 
 </footer>

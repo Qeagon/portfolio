@@ -12,4 +12,13 @@ import { Footer} from './footer/footer';
 })
 export class App {
   protected readonly title = signal('matt-farley');
+
+  socialLinks = [
+     { icon: 'insta-logo.png', url: 'https://instagram.com' },
+    { icon: 'insta-logo.png', url: 'https://twitter.com' },
+    { icon: 'insta-logo.png', url: 'https://github.com' },
+  ];
+
+  siteTitle = 'Matt Farley';
+  avatarImage = 'mf-avatar.svg';
 }
