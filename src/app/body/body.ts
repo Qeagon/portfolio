@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './body.scss',
 })
 export class Body {
-@Input() avatar: string = '';
+  @Input() avatar: string = '';
 }

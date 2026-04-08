@@ -6,13 +6,12 @@ import { Footer} from './footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, Body, Footer], // ← geen quotes!
+  imports: [Header, Body, Footer], 
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('matt-farley');
-
+protected readonly title = signal('matt-farley');
   socialLinks = [
      { icon: 'insta-logo.png', url: 'https://instagram.com' },
     { icon: 'insta-logo.png', url: 'https://twitter.com' },
