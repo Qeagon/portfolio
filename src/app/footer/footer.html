@@ -1,0 +1,21 @@
+<footer class="footer">
+  
+  <div class="footer__footerbox">
+
+    <img src="favicon.ico">
+
+    <p class="footer__text">Living, learning, & leveling up one day at a time.</p>
+
+    <div class="footer__socials">
+      @for (social of socials; track social.url) {
+        <a [href]="social.url" target="_blank">
+          <img class="footer__img" [src]="social.icon">
+        </a>
+      }
+    </div>
+
+    <p>Handcrafted by Quincy</p>
+
+  </div>
+
+</footer>
