@@ -1,7 +1,7 @@
 .footer {
     display: flex;
     justify-content: center;
-    background: #6E07F3;
+    background: var(--primary-color);
     font-family: sans-serif;
     font-weight: 400;
     padding: 40px 0;
@@ -24,7 +24,7 @@
     &__button {
         border: none;
         border-radius: 5px;
-        background-color: #6E07F3;
+        background-color: var(--primary-color);
         cursor: pointer;
         padding: 0;
 
@@ -36,6 +36,6 @@
     &__img {
         width: 25px;
         height: 25px;
-        filter: brightness(0) invert(1); // maakt de icoontjes wit
+        filter: brightness(0) invert(1);
     }
 }

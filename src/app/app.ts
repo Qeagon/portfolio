@@ -11,13 +11,22 @@ import { Footer} from './footer/footer';
   styleUrl: './app.scss'
 })
 export class App {
-protected readonly title = signal('matt-farley');
-  socialLinks = [
-     { icon: 'insta-logo.png', url: 'https://instagram.com' },
-    { icon: 'insta-logo.png', url: 'https://twitter.com' },
-    { icon: 'insta-logo.png', url: 'https://github.com' },
-  ];
+  protected readonly title = signal('matt-farley');
+  isDarkMode = false;
+
+  toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+    const element = document.querySelector('html');
+    element?.classList.toggle('my-app-dark');
+  }
 
   siteTitle = 'Matt Farley';
   avatarImage = 'mf-avatar.svg';
+  socialLinks = [
+    { icon: 'insta-logo.png', url: 'https://instagram.com' },
+    { icon: 'insta-logo.png', url: 'https://twitter.com' },
+    { icon: 'insta-logo.png', url: 'https://github.com' },
+  ];
+  
 }
+

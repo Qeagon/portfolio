@@ -1,11 +1,12 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-footer',
-  imports: [],
+  imports: [ButtonModule],
   templateUrl: './footer.html',
-  styleUrl: './footer.scss',
+  styleUrl: './footer.scss'
 })
 export class Footer {
- @Input() socials: { icon: string, url: string }[] = [];
+  @Input() socials: { icon: string, url: string }[] = [];
 }

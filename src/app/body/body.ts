@@ -1,10 +1,12 @@
 import { Component, Input } from '@angular/core';
+import { AvatarModule } from 'primeng/avatar';
+import { CardModule } from 'primeng/card';
 
 @Component({
   selector: 'app-body',
-  imports: [],
+  imports: [AvatarModule, CardModule],
   templateUrl: './body.html',
-  styleUrl: './body.scss',
+  styleUrl: './body.scss'
 })
 export class Body {
   @Input() avatar: string = '';

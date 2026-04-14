@@ -1,11 +1,17 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [ButtonModule],
   templateUrl: './header.html',
-  styleUrl: './header.scss',
+  styleUrl: './header.scss'
 })
 export class Header {
-@Input() siteTitle: string = '';
+  @Input() siteTitle: string = '';
+  @Output() darkModeToggled = new EventEmitter<void>();
+
+  toggleDarkMode() {
+    this.darkModeToggled.emit();
+  }
 }

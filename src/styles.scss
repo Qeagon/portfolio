@@ -1,11 +1,12 @@
 * {
-    
   box-sizing: border-box;
 
   &:focus {
     outline: none;
   }
 }
+
+@import 'primeicons/primeicons.css';
 
 body {
   margin: 0;
@@ -14,4 +15,20 @@ body {
     margin-top: 0;
     margin-bottom: 0;
   }
+}
+
+:root {
+    --primary-color: #6E07F3;
+    --text-color: #000000;
+    --bg-color: #ffffff;
+}
+
+.my-app-dark {
+    --primary-color: #ff69b4;
+    --text-color: #ffffff;
+    --bg-color: #121212;
+}
+
+.footer .pi {
+    color: #ffffff !important;
 }

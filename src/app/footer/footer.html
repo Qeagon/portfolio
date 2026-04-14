@@ -8,8 +8,8 @@
 
     <div class="footer__socials">
       @for (social of socials; track social.url) {
-        <a [href]="social.url" target="_blank">
-          <img class="footer__img" [src]="social.icon">
+        <a href="{{social.url}}" target="_blank">
+          <p-button [rounded]="true" [text]="true" icon="pi pi-instagram"/>
         </a>
       }
     </div>

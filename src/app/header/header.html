@@ -4,8 +4,9 @@
     <span class="header__title">{{ siteTitle }}</span>
 
     <div class="right">
-      <span>Mentorship</span> 
-      <button class="button">Say Hello</button>
+      <span>Mentorship</span>
+      <p-button icon="pi pi-moon" [rounded]="true" [text]="true" (onClick)="toggleDarkMode()"/>
+      <p-button label="Say Hello" [rounded]="true" severity="secondary" variant="outlined"/>
     </div>
   </div>
 </header>
