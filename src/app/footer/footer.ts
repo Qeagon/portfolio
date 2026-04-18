@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
@@ -8,5 +8,5 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './footer.scss'
 })
 export class Footer {
-  @Input() socials: { icon: string, url: string }[] = [];
+  socials = input<{ icon: string, url: string }[]>([]);
 }

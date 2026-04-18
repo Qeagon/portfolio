@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
@@ -8,10 +8,15 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './header.scss'
 })
 export class Header {
-  @Input() siteTitle: string = '';
-  @Output() darkModeToggled = new EventEmitter<void>();
+  siteTitle = input<string>('');
+  isDark = input<boolean>(false);
+  darkModeToggled = output<void>();
 
   toggleDarkMode() {
     this.darkModeToggled.emit();
+  }
+
+  scrollToContact() {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   }
 }

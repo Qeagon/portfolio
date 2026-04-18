@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { AvatarModule } from 'primeng/avatar';
 import { CardModule } from 'primeng/card';
 
@@ -9,5 +9,5 @@ import { CardModule } from 'primeng/card';
   styleUrl: './body.scss'
 })
 export class Body {
-  @Input() avatar: string = '';
+  avatar = input<string>('');
 }

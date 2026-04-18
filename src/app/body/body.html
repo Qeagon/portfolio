@@ -3,7 +3,7 @@
   <div class="body">
     <h1 class="body__title">Designer, Frontend Developer & Mentor</h1>
     <p class="body__subtitle">I design and code beautifully simple things, and I love what I do.</p>
-    <p-avatar [image]="avatar" class="body__image" shape="circle" size="xlarge"/>
+    <p-avatar [image]="avatar()" class="body__image" shape="circle" size="xlarge"/>
   </div>
 
   <div class="bodyfoot">
@@ -13,10 +13,13 @@
 </section>
 
 <section class="text-box">
-  <p-card class="text-box__page-text">
-    <ng-template #title>Hi, I'm Quincy. Nice to meet you.</ng-template>
-    <ng-template #content>
-      <p class="text-box__text">Since beginning my journey as a freelance designer 12 years ago, I've done remote work for agencies, consulted for startups, and collaborated with talented people to create digital products for both business and consumer use. I'm quietly confident, naturally curious, and perpetually working on improving my chops.</p>
-    </ng-template>
-  </p-card>
+ <p-card [pt]="{
+  root: { style: { background: 'var(--p-primary-color)', boxShadow: '0 4px 15px rgba(0,0,0,0.3)', color: '#ffffff' } },
+  body: { style: { display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' } }
+}">
+  <ng-template #title>Hi, I'm Quincy. Nice to meet you.</ng-template>
+  <ng-template #content>
+    <p class="text-box__text">Since beginning my journey as a freelance designer 12 years ago, I've done remote work for agencies, consulted for startups, and collaborated with talented people to create digital products for both business and consumer use. I'm quietly confident, naturally curious, and perpetually working on improving my chops.</p>
+  </ng-template>
+</p-card>
 </section>

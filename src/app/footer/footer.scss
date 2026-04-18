@@ -1,7 +1,7 @@
 .footer {
     display: flex;
     justify-content: center;
-    background: var(--primary-color);
+    background: var(--p-primary-color);
     font-family: sans-serif;
     font-weight: 400;
     padding: 40px 0;
@@ -21,21 +21,5 @@
         margin: 0;
     }
 
-    &__button {
-        border: none;
-        border-radius: 5px;
-        background-color: var(--primary-color);
-        cursor: pointer;
-        padding: 0;
-
-        &:hover {
-            opacity: 0.8;
-        }
-    }
-
-    &__img {
-        width: 25px;
-        height: 25px;
-        filter: brightness(0) invert(1);
-    }
+   
 }
