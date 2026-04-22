@@ -1,13 +1,13 @@
 import { Component, input, output } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { SelectButtonModule } from 'primeng/selectbutton';
-import { FormsModule } from '@angular/forms';
-
+import { ReactiveFormsModule, FormControl } from '@angular/forms';
+import { Language } from '../language';
 
 @Component({
   selector: 'app-header',
-  imports: [ButtonModule, TranslateModule, SelectButtonModule, FormsModule],
+  imports: [ButtonModule, TranslateModule, SelectButtonModule, ReactiveFormsModule],
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })
@@ -21,18 +21,14 @@ export class Header {
     { label: '🇳🇱 NL', value: 'nl' }
   ];
 
-  selectedLanguage: string;
+  languageControl = new FormControl('');
 
-  constructor(private translate: TranslateService) {
-    const savedLang = localStorage.getItem('language') || 'en';
-    this.selectedLanguage = savedLang;
-    this.translate.use(savedLang);
-  }
+  constructor(private language: Language) {
+    this.languageControl.setValue(this.language.currentLanguage);
 
-  switchLanguage(lang: string) {
-    this.selectedLanguage = lang;
-    this.translate.use(lang);
-    localStorage.setItem('language', lang);
+    this.languageControl.valueChanges.subscribe(lang => {
+      if (lang) this.language.setLanguage(lang);
+    });
   }
 
   toggleDarkMode() {

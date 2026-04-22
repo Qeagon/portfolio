@@ -34,12 +34,11 @@ const MyPreset = definePreset(Aura, {
                 surface: {
                     0: '#121212',
                 },
-            }
+          }
         }
     },
 });
-
- export const appConfig: ApplicationConfig = {
+export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideAnimationsAsync(),
@@ -49,7 +48,7 @@ const MyPreset = definePreset(Aura, {
       missingTranslationHandler: {
         provide: MissingTranslationHandler,
         useClass: MyMissingTranslationHandler
-  }
+        }
     }),
     provideTranslateHttpLoader({
       prefix: '/i18n/',
