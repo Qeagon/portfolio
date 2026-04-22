@@ -9,7 +9,7 @@
     <div class="footer__socials">
      @for (social of socials(); track social.url) {
        <a [href]="social.url" target="_blank" rel="noopener noreferrer">
-          <p-button [rounded]="true" [text]="true" [icon]="social.icon"/>
+          <p-button [rounded]="true" [text]="true" [icon]="social.icon"[pt]="{ icon: { style: { color: '#ffffff' } } }"/>
         </a>
       }
     </div>
