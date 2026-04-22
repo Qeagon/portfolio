@@ -4,6 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { Language } from '../language';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-header',
@@ -26,7 +27,9 @@ export class Header {
   constructor(private language: Language) {
     this.languageControl.setValue(this.language.currentLanguage);
 
-    this.languageControl.valueChanges.subscribe(lang => {
+    this.languageControl.valueChanges
+    .pipe(takeUntilDestroyed())
+    .subscribe(lang => {  
       if (lang) this.language.setLanguage(lang);
     });
   }

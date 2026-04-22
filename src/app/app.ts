@@ -24,9 +24,9 @@ export class App {
   constructor(
     @Inject(DOCUMENT) private doc: Document,
     private renderer: Renderer2,
-    private languageservice : Language
+    private languageService : Language
   ) {
-    this.languageservice.init();
+    this.languageService.init();
 
     if (this.isDarkMode()) {
       this.renderer.addClass(this.doc.documentElement, 'my-app-dark');
