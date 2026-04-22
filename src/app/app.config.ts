@@ -1,8 +1,13 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideHttpClient } from '@angular/common/http';
 import { providePrimeNG } from 'primeng/config';
 import { definePreset } from '@primeuix/themes';
 import Aura from '@primeuix/themes/aura';
+import { provideTranslateService } from '@ngx-translate/core';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MissingTranslationHandler } from '@ngx-translate/core';
+import { MyMissingTranslationHandler } from './missing-translation.handler';
 
 
 const MyPreset = definePreset(Aura, {
@@ -34,10 +39,22 @@ const MyPreset = definePreset(Aura, {
     },
 });
 
-export const appConfig: ApplicationConfig = {
+ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideAnimationsAsync(),
+    provideHttpClient(),
+    provideTranslateService({
+      fallbackLang: 'en',
+      missingTranslationHandler: {
+        provide: MissingTranslationHandler,
+        useClass: MyMissingTranslationHandler
+  }
+    }),
+    provideTranslateHttpLoader({
+      prefix: '/i18n/',
+      suffix: '.json'
+    }),
     providePrimeNG({
       theme: {
         preset: MyPreset,

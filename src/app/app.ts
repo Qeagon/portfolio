@@ -4,6 +4,7 @@ import { Inject, Renderer2 } from '@angular/core';
 import { Header } from './header/header';
 import { Body } from './body/body';
 import { Footer } from './footer/footer';
+import { TranslateService, MissingTranslationHandler, MissingTranslationHandlerParams } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -22,8 +23,12 @@ export class App {
 
   constructor(
     @Inject(DOCUMENT) private doc: Document,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private translate: TranslateService
   ) {
+    const savedLang = localStorage.getItem('language') || 'en';
+    this.translate.use(savedLang);
+
     if (this.isDarkMode()) {
       this.renderer.addClass(this.doc.documentElement, 'my-app-dark');
     }
