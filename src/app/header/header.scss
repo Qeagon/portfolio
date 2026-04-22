@@ -10,11 +10,12 @@
     }
 
     &__title {
-    font-size: 16px;
-    font-family: sans-serif;
-    font-weight: bold;
-    margin-left: 10px;
-}
+        font-size: 16px;
+        font-family: sans-serif;
+        font-weight: bold;
+        margin-left: 10px;
+        color: var(--p-text-color);
+    }
 }
 
 .right {
@@ -24,24 +25,6 @@
     display: flex;
     align-items: center;
     margin-left: auto;
-    display: flex;
     gap: 30px;
     padding-right: 10px;
-}
-
-.button {
-    border-width: 1px;
-    border-radius: 20px;
-    width: 100px;
-    height: 35px;
-    border-color: #6E07F3;
-    background: #ffffff;
-    color: #6E07F3;
-    font-family: sans-serif;
-    font-weight: 400;
-
-    &:hover {
-        background-color: #6E07F3;
-        color: #ffffff;
-    }
 }

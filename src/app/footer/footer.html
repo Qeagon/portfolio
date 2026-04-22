@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" id="contact">
   
   <div class="footer__footerbox">
 
@@ -7,9 +7,9 @@
     <p class="footer__text">Living, learning, & leveling up one day at a time.</p>
 
     <div class="footer__socials">
-      @for (social of socials; track social.url) {
-        <a [href]="social.url" target="_blank">
-          <img class="footer__img" [src]="social.icon">
+     @for (social of socials(); track social.url) {
+       <a [href]="social.url" target="_blank" rel="noopener noreferrer">
+          <p-button [rounded]="true" [text]="true" [icon]="social.icon"[pt]="{ icon: { style: { color: '#ffffff' } } }"/>
         </a>
       }
     </div>
