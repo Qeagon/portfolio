@@ -6,6 +6,7 @@ import { Footer } from './footer/footer';
 import { Language } from './language';
 import { RouterModule, RouterOutlet } from '@angular/router';;
 
+
 @Component({
   selector: 'app-root',
   imports: [Header, Footer, RouterOutlet, RouterModule],

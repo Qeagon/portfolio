@@ -11,7 +11,7 @@ import { MyMissingTranslationHandler } from './missing-translation.handler';
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import { contactReducer } from './contact/store/contact.reducer';
+import { contactFeature } from './contact/store/contact.feature';
 import { ContactEffects } from './contact/store/contact.effects';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
@@ -52,6 +52,7 @@ const MyPreset = definePreset(Aura, {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
+    provideStore({ [contactFeature.name]: contactFeature.reducer }),
     provideRouter(routes),
     provideAnimationsAsync(),
     provideHttpClient(),
@@ -74,8 +75,7 @@ export const appConfig: ApplicationConfig = {
         }
       }
     }),
-    provideStore({ contact: contactReducer }), // 👈 aangepast
-    provideEffects([ContactEffects]),           // 👈 aangepast
+    provideEffects([ContactEffects]),          
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
   ]
 };

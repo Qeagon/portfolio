@@ -7,7 +7,7 @@ import { TextareaModule } from 'primeng/textarea';
 import { ButtonModule } from 'primeng/button';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { submitContact } from './store/contact.actions';
-import { selectPending, selectSuccess } from './store/contact.selector';
+import { selectPending, selectSuccess } from './store/contact.feature';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
