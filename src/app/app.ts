@@ -4,6 +4,7 @@ import { Inject, Renderer2 } from '@angular/core';
 import { Header } from './header/header';
 import { Body } from './body/body';
 import { Footer } from './footer/footer';
+import { Language } from './language';
 
 @Component({
   selector: 'app-root',
@@ -22,8 +23,11 @@ export class App {
 
   constructor(
     @Inject(DOCUMENT) private doc: Document,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private languageService : Language
   ) {
+    this.languageService.init();
+
     if (this.isDarkMode()) {
       this.renderer.addClass(this.doc.documentElement, 'my-app-dark');
     }
