@@ -13,5 +13,15 @@
   "FOOTER": {
     "TAGLINE": "Living, learning, & leveling up one day at a time.",
     "HANDCRAFTED": "Handcrafted by Quincy"
-  }
+  },
+  "CONTACT": {
+  "TITLE": "Get in touch",
+  "SUBTITLE": "Have a project in mind? Let's talk.",
+  "NAME": "Name",
+  "EMAIL": "Email",
+  "MESSAGE": "Message",
+  "SEND": "Send message",
+  "SUCCESS": "Your message has been sent!"
 }
+}
+

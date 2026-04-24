@@ -13,5 +13,14 @@
   "FOOTER": {
     "TAGLINE": "Leven, leren en elke dag een beetje beter worden.",
     "HANDCRAFTED": "Handgemaakt door Quincy"
-  }
+  },
+  "CONTACT": {
+  "TITLE": "Neem contact op",
+  "SUBTITLE": "Een project in gedachten? Laten we praten.",
+  "NAME": "Naam",
+  "EMAIL": "E-mail",
+  "MESSAGE": "Bericht",
+  "SEND": "Verstuur bericht",
+  "SUCCESS": "Je bericht is verstuurd!"
+}
 }

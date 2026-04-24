@@ -1,0 +1,43 @@
+<section class="contact">
+ 
+  <div class="contact__container">
+    <h2>{{ 'CONTACT.TITLE' | translate }}</h2>
+    <p>{{ 'CONTACT.SUBTITLE' | translate }}</p>
+
+    @if (success$ | async) {
+      <div class="contact__success">
+        <i class="pi pi-check-circle"></i>
+        <p>{{ 'CONTACT.SUCCESS' | translate }}</p>
+      </div>
+    } @else {
+      <form [formGroup]="form" (ngSubmit)="submit()">
+
+        @if (pending$ | async) {
+          <p-progressbar mode="indeterminate" [style]="{ height: '4px' }" />
+        }
+
+        <div class="contact__field">
+          <label for="name">{{ 'CONTACT.NAME' | translate }}</label>
+          <input pInputText id="name" formControlName="name" />
+        </div>
+
+        <div class="contact__field">
+          <label for="email">{{ 'CONTACT.EMAIL' | translate }}</label>
+          <input pInputText id="email" formControlName="email" />
+        </div>
+
+        <div class="contact__field">
+          <label for="message">{{ 'CONTACT.MESSAGE' | translate }}</label>
+          <textarea pTextarea id="message" formControlName="message" rows="5"></textarea>
+        </div>
+
+        <p-button
+          type="submit"
+          [label]="'CONTACT.SEND' | translate"
+          [rounded]="true"
+          [disabled]="form.invalid || (pending$ | async) === true"/>
+
+      </form>
+    }
+  </div>
+</section>
