@@ -1,8 +1,14 @@
 import { Routes } from '@angular/router';
-import { Contact } from './contact/contact';
-import { Body } from './body/body';
+import { provideState } from '@ngrx/store';
+import { provideEffects } from '@ngrx/effects';
+import { contactFeature } from './contact/store/contact.feature';
+import { ContactEffects } from './contact/store/contact.effects';
 
 export const routes: Routes = [
-    {path : '', component: Body},
-  { path: 'contact', component: Contact },
+  { path: '', loadComponent: () => import('./body/body').then((m) => m.Body) },
+  {
+    path: 'contact',
+    providers: [provideState(contactFeature), provideEffects([ContactEffects])],
+    loadComponent: () => import('./contact/contact').then((m) => m.Contact),
+  },
 ];

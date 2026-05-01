@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [ButtonModule, TranslateModule, SelectButtonModule, ReactiveFormsModule,],
+  imports: [ButtonModule, TranslateModule, SelectButtonModule, ReactiveFormsModule],
   templateUrl: './header.html',
-  styleUrl: './header.scss'
+  styleUrl: './header.scss',
 })
 export class Header {
   siteTitle = input<string>('');
@@ -20,17 +20,18 @@ export class Header {
 
   languages = [
     { label: '🇬🇧 EN', value: 'en' },
-    { label: '🇳🇱 NL', value: 'nl' }
+    { label: '🇳🇱 NL', value: 'nl' },
   ];
 
   languageControl = new FormControl('');
 
-  constructor(private language: Language, private router: Router) {
+  constructor(
+    private language: Language,
+    private router: Router,
+  ) {
     this.languageControl.setValue(this.language.currentLanguage);
 
-    this.languageControl.valueChanges
-    .pipe(takeUntilDestroyed())
-    .subscribe(lang => {  
+    this.languageControl.valueChanges.pipe(takeUntilDestroyed()).subscribe((lang) => {
       if (lang) this.language.setLanguage(lang);
     });
   }

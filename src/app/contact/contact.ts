@@ -6,8 +6,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TextareaModule } from 'primeng/textarea';
 import { ButtonModule } from 'primeng/button';
 import { ProgressBarModule } from 'primeng/progressbar';
-import { submitContact } from './store/contact.actions';
-import { selectPending, selectSuccess } from './store/contact.feature';
+import { ContactActions } from './store/contact.actions';
+import { selectPending, selectSuccess, selectError } from './store/contact.feature';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
@@ -19,32 +19,41 @@ import { AsyncPipe } from '@angular/common';
     TextareaModule,
     ButtonModule,
     ProgressBarModule,
-    AsyncPipe
+    AsyncPipe,
   ],
   templateUrl: './contact.html',
-  styleUrl: './contact.scss'
+  styleUrl: './contact.scss',
 })
 export class Contact {
-    private store = inject(Store);
-        pending$ = this.store.select(selectPending);
-        success$ = this.store.select(selectSuccess);
+  private store = inject(Store);
+  pending$ = this.store.select(selectPending);
+  success$ = this.store.select(selectSuccess);
+  error$ = this.store.select(selectError);
 
   form = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
-    message: new FormControl('', Validators.required)
+    message: new FormControl('', Validators.required),
   });
 
   constructor() {}
 
   submit() {
+    this.form.markAllAsTouched();
     if (this.form.valid) {
       const { name, email, message } = this.form.value;
-      this.store.dispatch(submitContact({
-        name: name!,
-        email: email!,
-        message: message!
-      }));
+      this.store.dispatch(
+        ContactActions.submit({
+          name: name!,
+          email: email!,
+          message: message!,
+        }),
+      );
     }
+  }
+
+  reset() {
+    this.store.dispatch(ContactActions.reset());
+    this.form.reset();
   }
 }

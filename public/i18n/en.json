@@ -15,13 +15,17 @@
     "HANDCRAFTED": "Handcrafted by Quincy"
   },
   "CONTACT": {
-  "TITLE": "Get in touch",
-  "SUBTITLE": "Have a project in mind? Let's talk.",
-  "NAME": "Name",
-  "EMAIL": "Email",
-  "MESSAGE": "Message",
-  "SEND": "Send message",
-  "SUCCESS": "Your message has been sent!"
+    "TITLE": "Get in touch",
+    "SUBTITLE": "Have a project in mind? Let's talk.",
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "MESSAGE": "Message",
+    "SEND": "Send message",
+    "SUCCESS": "Your message has been sent!",
+    "SEND_ANOTHER": "Send another message :)",
+    "NAME_REQUIRED": "Name is required",
+    "EMAIL_REQUIRED": "Email is required",
+    "EMAIL_INVALID": "Must be a valid email address",
+    "MESSAGE_REQUIRED": "Message is required"
+  }
 }
-}
-

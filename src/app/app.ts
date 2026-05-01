@@ -4,28 +4,29 @@ import { Inject, Renderer2 } from '@angular/core';
 import { Header } from './header/header';
 import { Footer } from './footer/footer';
 import { Language } from './language';
-import { RouterModule, RouterOutlet } from '@angular/router';;
-
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   imports: [Header, Footer, RouterOutlet, RouterModule],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
   protected readonly title = signal('matt-farley');
 
-  isDarkMode = signal((() => {
-    const stored = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return stored ? stored === 'dark' : prefersDark;
-  })());
+  isDarkMode = signal(
+    (() => {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      return stored ? stored === 'dark' : prefersDark;
+    })(),
+  );
 
   constructor(
     @Inject(DOCUMENT) private doc: Document,
     private renderer: Renderer2,
-    private languageService : Language
+    private languageService: Language,
   ) {
     this.languageService.init();
 

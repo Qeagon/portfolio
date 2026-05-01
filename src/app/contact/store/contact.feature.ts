@@ -1,5 +1,5 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
-import { submitContact, submitContactSuccess, submitContactFailure } from './contact.actions';
+import { ContactActions } from './contact.actions';
 
 export interface ContactState {
   pending: boolean;
@@ -10,17 +10,23 @@ export interface ContactState {
 export const initialState: ContactState = {
   pending: false,
   success: false,
-  error: null
+  error: null,
 };
 
 export const contactFeature = createFeature({
   name: 'contact',
   reducer: createReducer(
     initialState,
-    on(submitContact, state => ({ ...state, pending: true, success: false, error: null })),
-    on(submitContactSuccess, state => ({ ...state, pending: false, success: true })),
-    on(submitContactFailure, (state, { error }) => ({ ...state, pending: false, error }))
-  )
+    on(ContactActions.submit, (state) => ({
+      ...state,
+      pending: true,
+      success: false,
+      error: null,
+    })),
+    on(ContactActions.submitSuccess, (state) => ({ ...state, pending: false, success: true })),
+    on(ContactActions.submitFailure, (state, { error }) => ({ ...state, pending: false, error })),
+    on(ContactActions.reset, (state) => ({ ...state, success: false, error: null })),
+  ),
 });
 
 export const { selectPending, selectSuccess, selectError } = contactFeature;

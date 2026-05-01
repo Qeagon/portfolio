@@ -1,22 +1,30 @@
 <header>
   <div class="header">
-    <img class="header__image" src="favicon.ico">
+    <img class="header__image" src="favicon.ico" />
     <span class="header__title">{{ 'HEADER.TITLE' | translate }}</span>
 
     <div class="right">
-      <span>{{'HEADER.MENTORSHIP' | translate }}</span>
-        <p-button 
-          [icon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
-          ariaLabel="Toggle dark mode"
-          [rounded]="true" 
-          [text]="true" 
-          (onClick)="toggleDarkMode()"/>
-        <p-button [label]="'HEADER.SAY_HELLO' | translate" [rounded]="true" severity="secondary" variant="outlined" (onClick)="goToContact()"/>
-        <p-selectbutton 
-          [options]="languages" 
-          [formControl]="languageControl"
-          optionLabel="label" 
-          optionValue="value"/>
+      <span>{{ 'HEADER.MENTORSHIP' | translate }}</span>
+      <p-button
+        [icon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
+        ariaLabel="Toggle dark mode"
+        [rounded]="true"
+        [text]="true"
+        (onClick)="toggleDarkMode()"
+      />
+      <p-button
+        [label]="'HEADER.SAY_HELLO' | translate"
+        [rounded]="true"
+        severity="secondary"
+        variant="outlined"
+        (onClick)="goToContact()"
+      />
+      <p-selectbutton
+        [options]="languages"
+        [formControl]="languageControl"
+        optionLabel="label"
+        optionValue="value"
+      />
     </div>
   </div>
 </header>
