@@ -9,10 +9,7 @@ import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MissingTranslationHandler } from '@ngx-translate/core';
 import { MyMissingTranslationHandler } from './missing-translation.handler';
 import { provideStore } from '@ngrx/store';
-import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import { contactFeature } from './contact/store/contact.feature';
-import { ContactEffects } from './contact/store/contact.effects';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 

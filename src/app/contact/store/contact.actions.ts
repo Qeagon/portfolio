@@ -6,6 +6,6 @@ export const ContactActions = createActionGroup({
     Submit: props<{ name: string; email: string; message: string }>(),
     'Submit Success': emptyProps(),
     'Submit Failure': props<{ error: string }>(),
-    reset: emptyProps(),
+    Reset: emptyProps(),
   },
 });

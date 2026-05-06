@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -6,14 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ContactService {
-  send(name: string, email: string, message: string): Observable<void> {
-    return new Observable((observer) => {
-      setTimeout(() => {
-        observer.next();
-        observer.complete();
-      }, 2000);
-    });
-  }
+  private http = inject(HttpClient);
 
-  constructor(private http: HttpClient) {}
+  send(name: string, email: string, message: string): Observable<void> {
+    return this.http.post<void>('/api/contact', { name, email, message });
+  }
 }

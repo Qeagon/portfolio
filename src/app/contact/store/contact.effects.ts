@@ -1,9 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { delay, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { ContactActions } from './contact.actions';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, switchMap} from 'rxjs/operators';
 import { ContactService } from '../contact.service';
 
 @Injectable()
