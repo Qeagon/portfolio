@@ -1,13 +1,18 @@
 <footer class="footer" id="contact">
   <div class="footer__footerbox">
-    <img src="favicon.ico">
+    <img src="favicon.ico" />
 
     <p class="footer__text">{{ 'FOOTER.TAGLINE' | translate }}</p>
 
     <div class="footer__socials">
       @for (social of socials(); track social.url) {
         <a [href]="social.url" target="_blank" rel="noopener noreferrer">
-          <p-button [rounded]="true" [text]="true" [icon]="social.icon" [pt]="{ icon: { style: { color: '#ffffff' } } }"/>
+          <p-button
+            [rounded]="true"
+            [text]="true"
+            [icon]="social.icon"
+            [pt]="{ icon: { style: { color: '#ffffff' } } }"
+          />
         </a>
       }
     </div>

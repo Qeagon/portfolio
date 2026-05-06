@@ -5,12 +5,13 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { Language } from '../language';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   imports: [ButtonModule, TranslateModule, SelectButtonModule, ReactiveFormsModule],
   templateUrl: './header.html',
-  styleUrl: './header.scss'
+  styleUrl: './header.scss',
 })
 export class Header {
   siteTitle = input<string>('');
@@ -19,17 +20,18 @@ export class Header {
 
   languages = [
     { label: '🇬🇧 EN', value: 'en' },
-    { label: '🇳🇱 NL', value: 'nl' }
+    { label: '🇳🇱 NL', value: 'nl' },
   ];
 
   languageControl = new FormControl('');
 
-  constructor(private language: Language) {
+  constructor(
+    private language: Language,
+    private router: Router,
+  ) {
     this.languageControl.setValue(this.language.currentLanguage);
 
-    this.languageControl.valueChanges
-    .pipe(takeUntilDestroyed())
-    .subscribe(lang => {  
+    this.languageControl.valueChanges.pipe(takeUntilDestroyed()).subscribe((lang) => {
       if (lang) this.language.setLanguage(lang);
     });
   }
@@ -38,7 +40,7 @@ export class Header {
     this.darkModeToggled.emit();
   }
 
-  scrollToContact() {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  goToContact() {
+    this.router.navigate(['/contact']);
   }
 }

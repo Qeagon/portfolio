@@ -5,11 +5,14 @@ import { Title } from '@angular/platform-browser';
 @Injectable({
   providedIn: 'root',
 })
-export class Language{
+export class Language {
   private readonly STORAGE_KEY = 'language';
   private readonly FALLBACK_LANG = 'en';
 
-  constructor(private translate: TranslateService, private title: Title) {}
+  constructor(
+    private translate: TranslateService,
+    private title: Title,
+  ) {}
 
   init() {
     const savedLang = localStorage.getItem(this.STORAGE_KEY) || this.FALLBACK_LANG;

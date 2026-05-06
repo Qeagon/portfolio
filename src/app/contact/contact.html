@@ -1,0 +1,68 @@
+<section class="contact">
+  <div class="contact__container">
+    <h2>{{ 'CONTACT.TITLE' | translate }}</h2>
+    <p>{{ 'CONTACT.SUBTITLE' | translate }}</p>
+
+    @if (success$ | async) {
+      <div class="contact__success">
+        <i class="pi pi-check-circle"></i>
+        <p>{{ 'CONTACT.SUCCESS' | translate }}</p>
+        <p-button
+          [label]="'CONTACT.SEND_ANOTHER' | translate"
+          [rounded]="true"
+          severity="secondary"
+          variant="outlined"
+          (onClick)="reset()"
+        />
+      </div>
+    } @else {
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        @if (pending$ | async) {
+          <p-progressbar mode="indeterminate" [style]="{ height: '4px' }" />
+        }
+
+        @if (error$ | async; as error) {
+          <div class="contact__error">
+            <i class="pi pi-exclamation-circle"></i>
+            <p>{{ error }}</p>
+          </div>
+        }
+
+        <div class="contact__field">
+          <label for="name">{{ 'CONTACT.NAME' | translate }}</label>
+          <input pInputText id="name" formControlName="name" />
+          @if (form.controls.name.invalid && form.controls.name.touched) {
+            <small class="contact__field-error">{{ 'CONTACT.NAME_REQUIRED' | translate }}</small>
+          }
+        </div>
+
+        <div class="contact__field">
+          <label for="email">{{ 'CONTACT.EMAIL' | translate }}</label>
+          <input pInputText id="email" formControlName="email" />
+          @if (form.controls.email.touched && form.controls.email.hasError('required')) {
+            <small class="contact__field-error">{{ 'CONTACT.EMAIL_REQUIRED' | translate }}</small>
+          }
+          @if (form.controls.email.touched && form.controls.email.hasError('email')) {
+            <small class="contact__field-error">{{ 'CONTACT.EMAIL_INVALID' | translate }}</small>
+          }
+        </div>
+
+        <div class="contact__field">
+          <label for="message">{{ 'CONTACT.MESSAGE' | translate }}</label>
+          <textarea pTextarea id="message" formControlName="message" rows="5"></textarea>
+          @if (form.controls.message.invalid && form.controls.message.touched) {
+            <small class="contact__field-error">{{ 'CONTACT.MESSAGE_REQUIRED' | translate }}</small>
+          }
+        </div>
+
+        <p-button
+          type="submit"
+          [label]="'CONTACT.SEND' | translate"
+          [rounded]="true"
+          [disabled]="form.invalid || (pending$ | async) === true"
+          [style]="{ color: '#ffffff' }"
+        />
+      </form>
+    }
+  </div>
+</section>

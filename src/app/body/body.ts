@@ -7,7 +7,7 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-body',
   imports: [AvatarModule, CardModule, TranslateModule],
   templateUrl: './body.html',
-  styleUrl: './body.scss'
+  styleUrl: './body.scss',
 })
 export class Body {
   avatar = input<string>('');

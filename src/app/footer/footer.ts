@@ -6,8 +6,8 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-footer',
   imports: [ButtonModule, TranslateModule],
   templateUrl: './footer.html',
-  styleUrl: './footer.scss'
+  styleUrl: './footer.scss',
 })
 export class Footer {
-  socials = input<{ icon: string, url: string }[]>([]);
+  socials = input<{ icon: string; url: string }[]>([]);
 }
